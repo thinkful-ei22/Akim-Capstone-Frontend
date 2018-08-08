@@ -1,13 +1,8 @@
-export const ALLOCATE_ATTACK_POINTS = "ALLOCATE_ATTACK_POINTS";
-export const allocateAttackPoints = value => ({
-  type: ALLOCATE_ATTACK_POINTS,
-  payload: value
-});
-
-export const ALLOCATE_DEFENSE_POINTS = "ALLOCATE_DEFENSE_POINTS";
-export const allocateDefensePoints = value => ({
-  type: ALLOCATE_DEFENSE_POINTS,
-  payload: value
+export const ALLOCATE_POINTS = "ALLOCATE_POINTS";
+export const allocatePoints = (attackValue, defenseValue) => ({
+  type: ALLOCATE_POINTS,
+  payload: attackValue,
+  payload2: defenseValue
 });
 
 export const SAVE_STAT_POINTS = "SAVE_STAT_POINTS";

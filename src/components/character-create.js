@@ -1,7 +1,8 @@
 import React from "react";
 import StatsAllocator from "./stats-allocator";
+import { connect } from "react-redux";
 
-export default function(props) {
+function characterCreator(props) {
   return (
     <form>
       <label htmlFor="character-name">Name Your Character</label>
@@ -13,3 +14,5 @@ export default function(props) {
     </form>
   );
 }
+
+export default connect()(characterCreator);

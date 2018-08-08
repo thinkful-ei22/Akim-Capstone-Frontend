@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { changePage } from "../actions/game-actions";
+import { grantPlayerStatPoints } from "../actions/player-stat-actions";
 
 function MainMenu(props) {
   return (
@@ -12,7 +13,10 @@ function MainMenu(props) {
       </h1>
       <button
         name="start-button"
-        onClick={e => props.changePage("character")}
+        onClick={e => {
+          props.changePage("character");
+          props.grantPlayerStatPoints(20);
+        }}
         autoFocus
       >
         Start Game
@@ -22,5 +26,5 @@ function MainMenu(props) {
 }
 export default connect(
   null,
-  { changePage }
+  { changePage, grantPlayerStatPoints }
 )(MainMenu);

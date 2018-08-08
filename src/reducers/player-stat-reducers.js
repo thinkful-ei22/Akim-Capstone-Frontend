@@ -1,6 +1,5 @@
 import {
-  ALLOCATE_ATTACK_POINTS,
-  ALLOCATE_DEFENSE_POINTS,
+  ALLOCATE_POINTS,
   SAVE_STAT_POINTS,
   GRANT_PLAYER_STAT_POINTS
 } from "../actions/player-stat-actions";
@@ -23,19 +22,13 @@ export default function(state = initialState, action) {
     };
   }
 
-  if (action.type === ALLOCATE_ATTACK_POINTS) {
+  if (action.type === ALLOCATE_POINTS) {
     return {
       ...state,
-      statPointsRemaining: state.initialStatPoints - action.payload,
-      attackAllocated: action.payload
-    };
-  }
-
-  if (action.type === ALLOCATE_DEFENSE_POINTS) {
-    return {
-      ...state,
-      statPointsRemaining: state.initialStatPoints - action.payload,
-      defenseAllocated: action.payload
+      statPointsRemaining:
+        state.initialStatPoints - (action.payload + action.payload2),
+      attackAllocated: action.payload,
+      defenseAllocated: action.payload2
     };
   }
 
