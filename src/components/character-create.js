@@ -1,18 +1,42 @@
 import React from "react";
 import StatsAllocator from "./stats-allocator";
 import { connect } from "react-redux";
+import { createName, saveStatPoints } from "../actions/player-stat-actions";
+import { changePage } from "../actions/game-actions";
 
-function characterCreator(props) {
-  return (
-    <form>
-      <label htmlFor="character-name">Name Your Character</label>
-      <input name="character-name" type="text" id="character-name" />
+class CharacterCreator extends React.Component {
+  constructor(props) {
+    super(props);
+    this.playerName = "";
+  }
+  render() {
+    return (
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          this.props.createName(this.playerName.value);
+          this.props.saveStatPoints();
+          this.props.changePage("battle");
+        }}
+      >
+        <label htmlFor="character-name">Name Your Character</label>
+        <input
+          name="character-name"
+          type="text"
+          id="character-name"
+          ref={input => (this.playerName = input)}
+          required
+        />
 
-      <StatsAllocator />
+        <StatsAllocator />
 
-      <button type="submit">Create Character</button>
-    </form>
-  );
+        <button type="submit">Create Character</button>
+      </form>
+    );
+  }
 }
 
-export default connect()(characterCreator);
+export default connect(
+  null,
+  { createName, saveStatPoints, changePage }
+)(CharacterCreator);

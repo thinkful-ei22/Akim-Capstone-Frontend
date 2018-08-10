@@ -16,12 +16,11 @@ class StatsAllocator extends React.Component {
       <div>
         <fieldset>
           <legend>
-            Allocate Stat Points :{" "}
+            Allocate Stat Points :
             <span>
-              {" "}
               {isNaN(this.props.player.statPointsRemaining)
                 ? 0
-                : this.props.player.statPointsRemaining}{" "}
+                : this.props.player.statPointsRemaining}
             </span>
           </legend>
           <label htmlFor="attack-stat">Attack Points</label>
@@ -47,7 +46,7 @@ class StatsAllocator extends React.Component {
             }}
           />
           <span>
-            {this.props.player.previousAttack} +{" "}
+            {this.props.player.baseAttack} +
             {isNaN(this.props.player.attackAllocated)
               ? 0
               : this.props.player.attackAllocated}
@@ -75,7 +74,7 @@ class StatsAllocator extends React.Component {
             }}
           />
           <span>
-            {this.props.player.previousDefense} +{" "}
+            {this.props.player.baseDefense} +
             {isNaN(this.props.player.defenseAllocated)
               ? 0
               : this.props.player.defenseAllocated}
@@ -87,6 +86,6 @@ class StatsAllocator extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  player: state.playerStats
+  player: state.battle.player
 });
 export default connect(mapStateToProps)(StatsAllocator);
