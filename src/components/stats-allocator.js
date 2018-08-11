@@ -12,6 +12,11 @@ class StatsAllocator extends React.Component {
       (this.props.player.attackAllocated + this.props.player.defenseAllocated);
   }
   render() {
+    console.log(
+      `Initial: ${this.props.player.initialStatPoints}, AtkAllocated: ${
+        this.props.player.attackAllocated
+      }, DefAllocated: ${this.props.player.defenseAllocated}`
+    );
     return (
       <div>
         <fieldset>
@@ -30,11 +35,17 @@ class StatsAllocator extends React.Component {
             id="attack-stat"
             defaultValue="0"
             min="0"
-            max={this.maximumPointInput}
+            max={parseInt(
+              this.props.player.initialStatPoints -
+                this.props.player.defenseAllocated
+            )}
             ref={input => (this.attackValue = input)}
             onChange={e => {
               //consider adding some error handling here
-              if (e.currentTarget.value <= this.maximumPointInput) {
+              if (
+                e.currentTarget.value <= this.maximumPointInput ||
+                this.maximumPointInput > 0
+              ) {
                 console.log(this.attackValue.value);
                 this.props.dispatch(
                   allocatePoints(
@@ -59,11 +70,17 @@ class StatsAllocator extends React.Component {
             id="defense-stat"
             defaultValue="0"
             min="0"
-            max={this.maximumPointInput}
+            max={parseInt(
+              this.props.player.initialStatPoints -
+                this.props.player.attackAllocated
+            )}
             ref={input => (this.defenseValue = input)}
             onChange={e => {
               // consider adding some error handling here
-              if (e.currentTarget.value <= this.maximumPointInput) {
+              if (
+                e.currentTarget.value <= this.maximumPointInput ||
+                this.maximumPointInput > 0
+              ) {
                 this.props.dispatch(
                   allocatePoints(
                     parseInt(this.attackValue.value),
