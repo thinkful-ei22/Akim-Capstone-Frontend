@@ -1,0 +1,5 @@
+#battle-log {
+  border: 1px solid;
+  height: 100px;
+  overflow: scroll;
+}
