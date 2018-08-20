@@ -36,7 +36,10 @@ class CharacterCreator extends React.Component {
   }
 }
 
+const mapStateToProps = state => ({
+  profile: state.profile
+});
 export default connect(
-  null,
+  mapStateToProps,
   { createName, saveStatPoints, changePage }
 )(CharacterCreator);

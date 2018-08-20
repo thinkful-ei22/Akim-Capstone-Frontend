@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import "./battle-page.css";
 
+import { fetchProfile } from "../../actions/profile-actions";
 import {
   playerChooses,
   dealDamagePlayer,
   dealDamageEnemy,
-  logTie
+  logTie,
+  battleEnsues
 } from "../../actions/battle-actions";
 import { changePage } from "../../actions/game-actions";
 import StatusBar from "./status-bar";
@@ -13,8 +16,8 @@ import CombatLog from "./combat-log";
 import identifyLoser from "../../selectors/loser-selector";
 
 class BattlePage extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
+    this.props.fetchProfile();
   }
 
   componentDidUpdate() {
@@ -36,13 +39,16 @@ class BattlePage extends React.Component {
     console.log(result);
     switch (result.loser) {
       case "player":
-        this.props.dealDamagePlayer(result);
+        this.props.battleEnsues();
+        setTimeout(() => this.props.dealDamagePlayer(result), 1000);
         break;
       case "enemy":
-        this.props.dealDamageEnemy(result);
+        this.props.battleEnsues();
+        setTimeout(() => this.props.dealDamageEnemy(result), 1000);
         break;
       case "tie":
-        this.props.logTie(result.enemyChoice);
+        this.props.battleEnsues();
+        setTimeout(() => this.props.logTie(result.enemyChoice), 1000);
     }
   }
   render() {
@@ -67,14 +73,23 @@ class BattlePage extends React.Component {
             attack={this.props.player.baseAttack}
             defense={this.props.player.baseDefense}
           />
-          <button name="rock" onClick={() => this.calculateWinner("Rock")}>
+          <button
+            name="rock"
+            class="battle-button"
+            onClick={() => this.calculateWinner("Rock")}
+          >
             ROCK
           </button>
-          <button name="paper" onClick={() => this.calculateWinner("Paper")}>
+          <button
+            name="paper"
+            class="battle-button"
+            onClick={() => this.calculateWinner("Paper")}
+          >
             PAPER
           </button>
           <button
             name="scissors"
+            class="battle-button"
             onClick={() => this.calculateWinner("Scissors")}
           >
             SCISSORS
@@ -91,5 +106,13 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { playerChooses, dealDamagePlayer, dealDamageEnemy, logTie, changePage }
+  {
+    playerChooses,
+    dealDamagePlayer,
+    dealDamageEnemy,
+    logTie,
+    changePage,
+    fetchProfile,
+    battleEnsues
+  }
 )(BattlePage);

@@ -4,6 +4,11 @@ export const playerChooses = choice => ({
   payload: choice
 });
 
+export const BATTLE_ENSUES = "BATTLE_ENSUES";
+export const battleEnsues = () => ({
+  type: BATTLE_ENSUES
+});
+
 export const DEAL_DAMAGE_PLAYER = "DEAL_DAMAGE_PLAYER";
 export const dealDamagePlayer = result => ({
   type: DEAL_DAMAGE_PLAYER,

@@ -9,7 +9,8 @@ import {
   DEAL_DAMAGE_PLAYER,
   DEAL_DAMAGE_ENEMY,
   LOG_A_TIE,
-  RESET_GAME
+  RESET_GAME,
+  BATTLE_ENSUES
 } from "../actions/battle-actions";
 
 const initialState = {
@@ -116,6 +117,12 @@ export default function(state = initialState, action) {
   }
 
   //BATTLE ACTION HANDLERS
+  if (action.type === BATTLE_ENSUES) {
+    return {
+      ...state,
+      combatLog: state.combatLog.concat(["Battle Ensues...", " "])
+    };
+  }
 
   if (action.type === DEAL_DAMAGE_PLAYER) {
     return {

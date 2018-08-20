@@ -12,10 +12,10 @@ export default (playerChoice, player, enemy) => {
     (playerChoice === "Scissors" && enemyChoice === "Paper")
   ) {
     loser = "enemy";
-    damage = parseInt(calculateDamage(player, enemy));
+    damage = Number(calculateDamage(player, enemy));
   } else {
     loser = "player";
-    damage = parseInt(calculateDamage(enemy, player));
+    damage = Number(calculateDamage(enemy, player));
   }
   return { damage, loser, playerChoice, enemyChoice };
 };

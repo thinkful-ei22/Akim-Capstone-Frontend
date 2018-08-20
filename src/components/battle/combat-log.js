@@ -24,7 +24,13 @@ class CombatLog extends React.Component {
         {this.props.battleLog.length === 0 ? (
           <li>begin the battle...</li>
         ) : (
-          this.props.battleLog.map(log => <li>{log}</li>)
+          this.props.battleLog.map(log => {
+            if (log === " ") {
+              return <br />;
+            } else {
+              return <li>{log}</li>;
+            }
+          })
         )}
         {/*This is a dummy div for continuous scrolling in the log*/}
         <div
