@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { BACKEND_URL, CLIENT_URL } from "../config";
+import { BACKEND_URL } from "../config.js";
 //REGISTRATION
 ////opens registration form
 export const BEGIN_REGISTRATION = "BEGIN_REGISTRATION";
@@ -52,7 +52,7 @@ export const fetchRegistration = credentials => dispatch => {
       }
     })
     .catch(error => {
-      const parsedError = error.json().then(parsedError => {
+      error.json().then(parsedError => {
         console.log(parsedError.message);
         dispatch(fetchRegistrationError(parsedError.message));
       });
