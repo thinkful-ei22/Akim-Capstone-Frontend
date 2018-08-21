@@ -1,5 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { BACKEND_URL } from "../config";
+import { BACKEND_URL, CLIENT_URL } from "../config";
 //REGISTRATION
 ////opens registration form
 export const BEGIN_REGISTRATION = "BEGIN_REGISTRATION";
@@ -38,7 +38,7 @@ export const fetchRegistration = credentials => dispatch => {
     body: JSON.stringify(credentials)
   })
     .then(response => {
-      if (response.code !== 201) {
+      if (!response.ok) {
         return Promise.reject(response);
       }
       return response;
@@ -52,8 +52,10 @@ export const fetchRegistration = credentials => dispatch => {
       }
     })
     .catch(error => {
-      console.log(error);
-      dispatch(fetchRegistrationError(error.message));
+      const parsedError = error.json().then(parsedError => {
+        console.log(parsedError.message);
+        dispatch(fetchRegistrationError(parsedError.message));
+      });
     });
 };
 
@@ -79,7 +81,9 @@ export const fetchLogin = credentials => dispatch => {
   dispatch(fetchLoginRequest());
   fetch(`${BACKEND_URL}/api/auth/login`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify(credentials)
   })
     .then(response => {

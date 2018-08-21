@@ -16,7 +16,7 @@ class RegistrationForm extends React.Component {
           <button
             type="button"
             name="return-to-login"
-            onClick={() => this.endRegistration()}
+            onClick={() => this.props.endRegistration()}
           >
             Return to Login
           </button>
