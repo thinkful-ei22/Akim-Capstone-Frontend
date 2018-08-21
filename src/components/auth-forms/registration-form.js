@@ -13,14 +13,27 @@ class RegistrationForm extends React.Component {
       return (
         <div>
           <strong>Account Successfully Created!</strong>
-          <button onClick={() => this.endRegistration()}>
+          <button
+            type="button"
+            name="return-to-login"
+            onClick={() => this.endRegistration()}
+          >
             Return to Login
           </button>
         </div>
       );
     }
     return (
-      <form>
+      <form
+        onSubmit={e => {
+          e.preventDefault();
+          this.props.fetchRegistration({
+            username: this.username.value,
+            password: this.password.value,
+            confirmPassword: this.confirmPassword.value
+          });
+        }}
+      >
         <label htmlFor="username">
           <strong>Username</strong>
         </label>
@@ -54,7 +67,7 @@ class RegistrationForm extends React.Component {
           required
         />
 
-        <strong class="error-message">
+        <strong className="error-message">
           {this.props.currentProfile.errorMessage}
         </strong>
         <button type="submit">Create Your Account</button>

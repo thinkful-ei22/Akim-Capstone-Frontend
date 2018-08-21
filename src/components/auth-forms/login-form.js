@@ -14,7 +14,7 @@ class LoginForm extends React.Component {
           });
         }}
       >
-        <label for="username">
+        <label htmlFor="username">
           <b>Username</b>
         </label>
         <input
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
           required
         />
 
-        <label for="password">
+        <label htmlFor="password">
           <b>Password</b>
         </label>
         <input

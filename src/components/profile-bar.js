@@ -4,11 +4,11 @@ import "./profile-bar.css";
 
 function ProfileBar(props) {
   return (
-    <nav role="section" class="profile-bar">
+    <nav role="section" className="profile-bar">
       <button
         type="button"
         name="logout"
-        class="profile-bar-item"
+        className="profile-bar-item"
         onClick={() => {
           props.logout();
         }}
@@ -16,10 +16,10 @@ function ProfileBar(props) {
         logout
       </button>
 
-      <strong class="profile-bar-item profile-details">
+      <strong className="profile-bar-item profile-details">
         {props.currentProfile.user.username}
       </strong>
-      <strong class="profile-bar-item profile-details">
+      <strong className="profile-bar-item profile-details">
         Highest Round: {props.currentProfile.user.highestRound}
       </strong>
     </nav>

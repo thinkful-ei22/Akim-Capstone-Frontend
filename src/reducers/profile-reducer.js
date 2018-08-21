@@ -10,7 +10,8 @@ import {
   FETCH_PROFILE_ERROR,
   BEGIN_REGISTRATION,
   END_REGISTRATION,
-  SET_ERROR_MESSAGE
+  SET_ERROR_MESSAGE,
+  LOGOUT
 } from "../actions/profile-actions";
 
 const initialState = {
@@ -25,10 +26,7 @@ const initialState = {
   errorMessage: ""
 };
 
-console.log(initialState);
-
 export default function(state = initialState, action) {
-  console.log(state, action);
   //Loading screens while making requests
   if (
     action.type === FETCH_REGISTRATION_REQUEST ||
@@ -37,10 +35,8 @@ export default function(state = initialState, action) {
   ) {
     return { ...state, loading: true };
   }
-  console.log(action.type === BEGIN_REGISTRATION);
   //open registration form
   if (action.type === BEGIN_REGISTRATION) {
-    console.log(action);
     return { ...state, userRegistering: true };
   }
 
@@ -65,7 +61,6 @@ export default function(state = initialState, action) {
 
   //USER LOGIN REQUEST BLOCK
   if (action.type === FETCH_LOGIN_SUCCESS) {
-    console.log(action);
     return {
       ...state,
       user: action.payload,
@@ -90,6 +85,21 @@ export default function(state = initialState, action) {
 
   if (action.type === SET_ERROR_MESSAGE) {
     return { ...state, errorMessage: action.payload };
+  }
+
+  //Logging out
+  if (action.type === LOGOUT) {
+    return {
+      userRegistering: false,
+      userCreated: false,
+      loggedIn: false,
+      loading: false,
+      user: {
+        username: null,
+        highestRound: 0
+      },
+      errorMessage: ""
+    };
   }
 
   return state;

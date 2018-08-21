@@ -1,4 +1,5 @@
 import jwtDecode from "jwt-decode";
+import { promises } from "fs";
 //REGISTRATION
 ////opens registration form
 export const BEGIN_REGISTRATION = "BEGIN_REGISTRATION";
@@ -38,12 +39,23 @@ export const fetchRegistration = credentials => dispatch => {
     body: JSON.stringify(credentials)
   })
     .then(response => {
+      if (response.code !== 201) {
+        return Promise.reject(response);
+      }
+      return response;
+    })
+    .then(response => {
       return response.json();
     })
     .then(parsedResponse => {
-      dispatch(fetchRegistrationSuccess(parsedResponse.username));
+      if (parsedResponse) {
+        dispatch(fetchRegistrationSuccess());
+      }
     })
-    .catch(error => dispatch(fetchRegistrationError(error)));
+    .catch(error => {
+      console.log(error);
+      dispatch(fetchRegistrationError(error.message));
+    });
 };
 
 //ALLOW USER TO LOGIN

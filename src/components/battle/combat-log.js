@@ -3,10 +3,6 @@ import { connect } from "react-redux";
 import "./combat-log.css";
 
 class CombatLog extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   scrollToBottom = () => {
     this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   };

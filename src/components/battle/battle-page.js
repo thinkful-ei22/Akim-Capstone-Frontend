@@ -75,21 +75,21 @@ class BattlePage extends React.Component {
           />
           <button
             name="rock"
-            class="battle-button"
+            className="battle-button"
             onClick={() => this.calculateWinner("Rock")}
           >
             ROCK
           </button>
           <button
             name="paper"
-            class="battle-button"
+            className="battle-button"
             onClick={() => this.calculateWinner("Paper")}
           >
             PAPER
           </button>
           <button
             name="scissors"
-            class="battle-button"
+            className="battle-button"
             onClick={() => this.calculateWinner("Scissors")}
           >
             SCISSORS
