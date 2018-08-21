@@ -32,7 +32,7 @@ export const fetchRegistrationError = error => ({
 
 export const fetchRegistration = credentials => dispatch => {
   dispatch(fetchRegistrationRequest());
-  fetch(`${BACKEND_URL}api/users/register`, {
+  fetch(`${BACKEND_URL}/api/users/register`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(credentials)
@@ -79,7 +79,7 @@ export const fetchLoginError = error => ({
 
 export const fetchLogin = credentials => dispatch => {
   dispatch(fetchLoginRequest());
-  fetch(`${BACKEND_URL}api/auth/login`, {
+  fetch(`${BACKEND_URL}/api/auth/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
@@ -119,7 +119,7 @@ export const fetchProfileError = error => ({
 
 export const fetchProfile = () => dispatch => {
   dispatch(fetchProfileRequest());
-  fetch(`${BACKEND_URL}api/game/profile`, {
+  fetch(`${BACKEND_URL}/api/game/profile`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${window.sessionStorage.getItem("authToken")}`
