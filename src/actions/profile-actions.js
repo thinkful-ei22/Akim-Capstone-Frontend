@@ -1,6 +1,5 @@
 import jwtDecode from "jwt-decode";
-import { promises } from "fs";
-import { BACKEND_URL } from "../../config";
+import { BACKEND_URL } from "../config";
 //REGISTRATION
 ////opens registration form
 export const BEGIN_REGISTRATION = "BEGIN_REGISTRATION";
@@ -21,9 +20,8 @@ export const fetchRegistrationRequest = () => ({
 });
 
 export const FETCH_REGISTRATION_SUCCESS = "FETCH_REGISTRATION_SUCCESS";
-export const fetchRegistrationSuccess = username => ({
-  type: FETCH_REGISTRATION_SUCCESS,
-  payload: username
+export const fetchRegistrationSuccess = () => ({
+  type: FETCH_REGISTRATION_SUCCESS
 });
 
 export const FETCH_REGISTRATION_ERROR = "FETCH_REGISTRATION_ERROR";
