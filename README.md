@@ -1,5 +1,9 @@
 Into the Maw is an RPG where you explore into the Maw, a cave notorious for housing all manner of evil creatures. Allocate your stats, and battle using Rock, Paper, Scissors.  
 
+## Screenshots
+`Screenshots`
+![Landing Page](./src/images/into-the-maw-landing-page.png)
+
 -A link to a deployed version
 -- https://intothemaw.herokuapp.com/
 
@@ -14,9 +18,6 @@ Into the Maw is an RPG where you explore into the Maw, a cave notorious for hous
 -The app component is the root component, followed directly in importance by the main-menu component, 
 and the battle page component(which is in the src/components/battle folder.
 
-//at the moment the registration is a bit buggy: until it's up and running, a dummy account can be used to login
-username : jimuser
-password : password
 
 
 =====================================================================================================================================
