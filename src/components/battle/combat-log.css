@@ -4,3 +4,8 @@
   overflow: scroll;
   text-align: left;
 }
+
+.log-entry {
+  list-style-type: none;
+  padding-top: 3vh;
+}
