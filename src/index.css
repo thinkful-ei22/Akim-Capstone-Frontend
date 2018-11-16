@@ -2,11 +2,20 @@ body {
   margin-left: auto;
   margin-right: auto;
   padding: 0;
-  font-family: sans-serif;
+  font-family: "Concert One", cursive;
   text-align: center;
+  background-image: url("./images/dungeon-entrance.jpg");
 }
 
 main {
   margin-left: auto;
   margin-right: auto;
+}
+
+.app {
+  background-color: #262826;
+  color: whitesmoke;
+  border-radius: 5px;
+  padding-bottom: 5vh;
+  margin-top: 15vh;
 }

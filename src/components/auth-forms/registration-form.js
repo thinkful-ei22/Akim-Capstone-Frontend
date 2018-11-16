@@ -45,6 +45,9 @@ class RegistrationForm extends React.Component {
           required
         />
 
+        <br />
+        <br />
+
         <label htmlFor="password">
           <strong>Password</strong>
         </label>
@@ -55,6 +58,9 @@ class RegistrationForm extends React.Component {
           ref={input => (this.password = input)}
           required
         />
+
+        <br />
+        <br />
 
         <label htmlFor="confirm-password">
           <strong>Confirm Password</strong>
@@ -70,6 +76,9 @@ class RegistrationForm extends React.Component {
         <strong className="error-message">
           {this.props.currentProfile.errorMessage}
         </strong>
+
+        <br />
+        <br />
         <button type="submit">Create Your Account</button>
       </form>
     );

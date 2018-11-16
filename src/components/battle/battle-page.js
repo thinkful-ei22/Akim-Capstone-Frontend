@@ -16,12 +16,26 @@ import CombatLog from "./combat-log";
 import identifyLoser from "../../selectors/loser-selector";
 
 class BattlePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      buttonsActive: true
+    };
+  }
+
   componentDidMount() {
     this.props.fetchProfile();
   }
 
   componentDidUpdate() {
     this.terminateBattleSequence();
+  }
+
+  toggleDisableButtons(bool) {
+    this.setState({
+      buttonsActive: bool
+    });
+    return;
   }
 
   terminateBattleSequence() {

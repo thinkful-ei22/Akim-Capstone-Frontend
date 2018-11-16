@@ -25,6 +25,9 @@ class LoginForm extends React.Component {
           required
         />
 
+        <br />
+        <br />
+
         <label htmlFor="password">
           <b>Password</b>
         </label>
@@ -35,6 +38,9 @@ class LoginForm extends React.Component {
           name="password"
           required
         />
+
+        <br />
+        <br />
 
         <button type="submit">Login</button>
       </form>

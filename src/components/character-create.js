@@ -28,6 +28,9 @@ class CharacterCreator extends React.Component {
           required
         />
 
+        <br />
+        <br />
+
         <StatsAllocator />
 
         <button type="submit">Create Character</button>
