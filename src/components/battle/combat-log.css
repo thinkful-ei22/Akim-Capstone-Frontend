@@ -3,6 +3,9 @@
   height: 100px;
   overflow: scroll;
   text-align: left;
+  max-width: 90vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .log-entry {
