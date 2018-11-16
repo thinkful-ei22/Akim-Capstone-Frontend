@@ -19,9 +19,9 @@ function ProfileBar(props) {
       <strong className="profile-bar-item profile-details">
         {props.currentProfile.user.username}
       </strong>
-      <strong className="profile-bar-item profile-details">
+      {/* <strong className="profile-bar-item profile-details">
         Highest Round: {props.currentProfile.user.highestRound}
-      </strong>
+      </strong> */}
     </nav>
   );
 }

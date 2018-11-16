@@ -10,6 +10,7 @@ body {
 main {
   margin-left: auto;
   margin-right: auto;
+  padding-top: 7vh;
 }
 
 .app {
@@ -18,4 +19,5 @@ main {
   border-radius: 5px;
   padding-bottom: 5vh;
   margin-top: 15vh;
+  min-height: 60vh;
 }

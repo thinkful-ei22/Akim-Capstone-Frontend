@@ -24,7 +24,7 @@ class CombatLog extends React.Component {
             if (log === " ") {
               return <br />;
             } else {
-              return <li>{log}</li>;
+              return <li className="log-entry">{log}</li>;
             }
           })
         )}
