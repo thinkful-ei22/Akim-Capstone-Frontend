@@ -15,7 +15,7 @@ class LoginForm extends React.Component {
         }}
       >
         <label htmlFor="username">
-          <b>Username</b>
+          <b>Username </b>
         </label>
         <input
           type="text"
@@ -29,7 +29,7 @@ class LoginForm extends React.Component {
         <br />
 
         <label htmlFor="password">
-          <b>Password</b>
+          <b>Password </b>
         </label>
         <input
           type="password"

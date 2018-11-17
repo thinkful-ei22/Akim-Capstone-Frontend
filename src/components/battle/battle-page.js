@@ -67,7 +67,7 @@ class BattlePage extends React.Component {
   }
   render() {
     return (
-      <main>
+      <main className="battle-page">
         <div>
           <StatusBar
             name={this.props.enemy.enemyName}
